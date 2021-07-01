@@ -20,10 +20,10 @@ import { useState } from "react";
 function App() {
   return (
     <div>
-      <FruitApp />
-      <NatureTag name="RIVER GANGA" />
-      <CityApp name="Delhi" id="d" />
-      <CityApp name="Kolkata" id="k" />
+      <div>Delhi</div>
+      <div>Kolkata</div>
+      <CityApp id="D" />
+      <CityApp />
       <CityApp name="Mumbai" id="m" />
       <CityApp name="Chennai" id="c" />
     </div>
@@ -40,7 +40,7 @@ function App() {
  * Rescue the prog to Dynamic--> FUNCTION PARAMETER :: USING THE CONCEPTS OF PROPS
  * <CityApp>
  */
-function CityApp({ id, name }) {
+function CityApp({ id = "DID", name = "DNAME" }) {
   return (
     <h1>
       {id}:: {name}
@@ -48,20 +48,5 @@ function CityApp({ id, name }) {
   );
 }
 /**Problem solved, Now Its Dynamic Program */
-
-/**
- * let {name}=props;--> Using Concepts of props to make the prog Dynamic
- */
-function NatureTag(props) {
-  return <h1>{props.name}</h1>;
-}
-
-/**
- * HARDCODED COMPONENT
- * <FruitApp />
- */
-function FruitApp() {
-  return <h1>Mango</h1>;
-}
 
 export default App;
