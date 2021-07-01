@@ -1,52 +1,50 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
-/**
- * Special Function, because it returns JSX
- * METHOD
- * COMPONENT BOY/ GIRL
- * Method name :: Starts with Capital
- * If the method name startes with caps,-> React Component
- *
- * THIS FUNCTION IS CREATING CUSTOM TAG / COMPONENT,
- * <App />-->Name of the Tag is same as the name of the function
- *React Tags Starts with Capital Letter
- *
- * HTML has a SET OF PREDEFINED TAGS :: Can we create CUSTOM TAGS
- * <TAG-NAME></TAG-NAME>
- * <div></div>
- * <h1></h1>
- */
+
 function App() {
   return (
     <div>
-      <div>Delhi</div>
-      <div>Kolkata</div>
-      <CityApp id="D" />
-      <CityApp />
-      <CityApp name="Mumbai" id="m" />
-      <CityApp name="Chennai" id="c" />
+      <SocialPost />
+      <SocialPost />
+      <SocialPost />
     </div>
   );
 }
 
-/**
- * SPECIAL METHOD
- * COMPONENT BOY
- * IT RETURNS JSX
- * LOOKS AT THE METHOD NAME AS WELL
- *
- * It's Static programming
- * Rescue the prog to Dynamic--> FUNCTION PARAMETER :: USING THE CONCEPTS OF PROPS
- * <CityApp>
- */
-function CityApp({ id = "DID", name = "DNAME" }) {
+function SocialPost() {
+  const [commentList, setCommentList] = useState(["comment 1", "comment 2"]);
+
+  const addNewComment = () => {
+    const newCommentList = ["This is a new Comment", ...commentList];
+    setCommentList(newCommentList);
+  };
+
   return (
-    <h1>
-      {id}:: {name}
-    </h1>
+    <div>
+      <h1 className="bg-dark text-light p-5 text-center mb-2">
+        SOCIAL MEDIA POST
+      </h1>
+
+      {commentList.map((item, index) => (
+        <div key={index} className="alert-secondary p-1 mb-1">
+          {item}
+        </div>
+      ))}
+
+      <input
+        type="text"
+        className="form-control-sm form-control mb-1"
+        placeholder="Add your comment.."
+      />
+      <input
+        type="button"
+        className="btn btn-sm alert-secondary w-100 mb-3"
+        value="Submit"
+        onClick={addNewComment}
+      />
+    </div>
   );
 }
-/**Problem solved, Now Its Dynamic Program */
 
 export default App;
