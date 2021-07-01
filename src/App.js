@@ -11,9 +11,15 @@ function App() {
   };
 
   const addPostOnWall = () => {
-    const newPostList = [inputPost, ...postList];
-    setPostList(newPostList);
-    setInputPost("");
+    if (inputPost !== "") {
+      //We are updating the list without validation
+      const newPostList = [inputPost, ...postList];
+      setPostList(newPostList);
+      setInputPost("");
+    } else {
+      //We have a better way for validation than if-else-alert method
+      alert("Empty Post Not Allowed !!");
+    }
   };
 
   return (
@@ -39,10 +45,6 @@ function App() {
       {postList.map((item, index) => (
         <SocialPost key={index} post={item} />
       ))}
-
-      {/* <SocialPost post="Movies" />
-      <SocialPost post="Sports" />
-      <SocialPost post="Politics" /> */}
     </div>
   );
 }
@@ -55,12 +57,17 @@ function SocialPost({ post }) {
     setInputComment(e.target.value);
   };
 
+  //Validating the comments
   const addNewComment = () => {
-    const newCommentList = [...commentList, inputComment];
-    setCommentList(newCommentList);
+    if (inputComment !== "") {
+      const newCommentList = [...commentList, inputComment];
+      setCommentList(newCommentList);
 
-    //clear the input box
-    setInputComment("");
+      //clear the input box
+      setInputComment("");
+    } else {
+      alert("Empty Comment Not Allowed!!");
+    }
   };
 
   return (
