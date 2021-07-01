@@ -32,6 +32,7 @@ function App() {
  * IT RETURNS JSX
  * LOOKS AT THE METHOD NAME AS WELL
  *
+ * It's Static programming
  * <CityApp>
  */
 function CityApp() {
