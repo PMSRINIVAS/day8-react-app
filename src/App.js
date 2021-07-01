@@ -17,11 +17,18 @@ import "./App.css";
  * <h1></h1>
  */
 function App() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  );
+  return <CityApp />;
 }
 
+/**
+ * SPECIAL METHOD
+ * COMPONENT BOY
+ * IT RETURNS JSX
+ * LOOKS AT THE METHOD NAME AS WELL
+ *
+ * <CityApp>
+ */
+function CityApp() {
+  return <h1>CHENNAI</h1>;
+}
 export default App;
