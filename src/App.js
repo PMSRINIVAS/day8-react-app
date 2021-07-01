@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 /**
  * Special Function, because it returns JSX
  * METHOD
@@ -19,9 +20,12 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <CityApp />
-      <CityApp />
-      <CityApp />
+      <FruitApp />
+      <NatureTag name="RIVER GANGA" />
+      <CityApp name="Delhi" id="d" />
+      <CityApp name="Kolkata" id="k" />
+      <CityApp name="Mumbai" id="m" />
+      <CityApp name="Chennai" id="c" />
     </div>
   );
 }
@@ -33,9 +37,31 @@ function App() {
  * LOOKS AT THE METHOD NAME AS WELL
  *
  * It's Static programming
+ * Rescue the prog to Dynamic--> FUNCTION PARAMETER :: USING THE CONCEPTS OF PROPS
  * <CityApp>
  */
-function CityApp() {
-  return <h1>CHENNAI</h1>;
+function CityApp({ id, name }) {
+  return (
+    <h1>
+      {id}:: {name}
+    </h1>
+  );
 }
+/**Problem solved, Now Its Dynamic Program */
+
+/**
+ * let {name}=props;--> Using Concepts of props to make the prog Dynamic
+ */
+function NatureTag(props) {
+  return <h1>{props.name}</h1>;
+}
+
+/**
+ * HARDCODED COMPONENT
+ * <FruitApp />
+ */
+function FruitApp() {
+  return <h1>Mango</h1>;
+}
+
 export default App;
